@@ -55,6 +55,7 @@ const ColorThemeSwitch: React.FC = React.memo(() => {
 
   return (
     <MaterialUISwitch
+      aria-label="Theme switch"
       checked={theme === 'dark'}
       onClick={toggleTheme}
       sx={{

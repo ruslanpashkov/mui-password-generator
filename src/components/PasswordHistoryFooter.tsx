@@ -36,6 +36,7 @@ const PasswordHistoryFooter: React.FC<Props> = React.memo(({
     <Button
       variant="text"
       color="inherit"
+      aria-label="Close history"
       onClick={closeHistory}
     >
       <CloseIcon />

@@ -17,6 +17,7 @@ const OpenHistoryButton: React.FC<Props> = React.memo(({ openHistory }) => (
         transform: 'translate(-25%, -25%)',
       }}
       variant="contained"
+      aria-label="Open history"
       onClick={openHistory}
     >
       <HistoryIcon fontSize="large" />

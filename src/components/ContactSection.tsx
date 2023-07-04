@@ -9,7 +9,11 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 const ContactSection: React.FC = React.memo(() => (
   <Box sx={{ mt: '20px' }}>
     <ButtonGroup>
-      <IconButton component="a" href="mailto:pashkov@mail.com">
+      <IconButton
+        component="a"
+        href="mailto:pashkov@mail.com"
+        aria-label="Email: pashkov@mail.com"
+      >
         <EmailIcon />
       </IconButton>
 
@@ -17,6 +21,7 @@ const ContactSection: React.FC = React.memo(() => (
         component="a"
         href="https://github.com/ruslanpashkov"
         target="_blank"
+        aria-label="Github: ruslanpashkov"
       >
         <GitHubIcon />
       </IconButton>
@@ -25,6 +30,7 @@ const ContactSection: React.FC = React.memo(() => (
         component="a"
         href="https://www.linkedin.com/in/ruslanpashkov/"
         target="_blank"
+        aria-label="LinkedIn: ruslanpashkov"
       >
         <LinkedInIcon />
       </IconButton>

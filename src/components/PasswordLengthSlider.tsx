@@ -30,6 +30,7 @@ const PasswordLengthSlider: React.FC<Props> = React.memo(({
       color="primary"
       value={length}
       valueLabelDisplay="auto"
+      aria-label="Password length"
       onChange={handleLengthSliderChange}
       disabled={!hasActiveCheckbox}
     />

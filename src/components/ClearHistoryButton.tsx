@@ -15,6 +15,7 @@ const ClearHistoryButton: React.FC<Props> = React.memo(({
   <Button
     variant="text"
     color="inherit"
+    aria-label="Clear history"
     disabled={!hasPasswords}
     onClick={clearHistory}
   >

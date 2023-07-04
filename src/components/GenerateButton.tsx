@@ -14,6 +14,7 @@ const GenerateButton: React.FC<Props> = React.memo(({
   <Button
     color="primary"
     variant="contained"
+    aria-label="Generate password"
     disabled={!hasActiveCheckbox}
     onClick={generatePassword}
   >

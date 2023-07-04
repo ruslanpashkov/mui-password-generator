@@ -27,7 +27,7 @@ const PasswordField: React.FC<Props> = React.memo(({
     ? 'Generate your password'
     : 'Select at least one option';
 
-  const passwordDifficulty = password.length >= 4
+  const passwordStrength = password.length >= 4
     ? (zxcvbn(password).score + 1) * 20
     : 0;
 
@@ -54,6 +54,7 @@ const PasswordField: React.FC<Props> = React.memo(({
         fullWidth
         label={labelText}
         value={password}
+        aria-label="Generated password"
         error={isFieldsDisabled}
         onChange={handlePasswordChange}
         endAdornment={
@@ -63,10 +64,11 @@ const PasswordField: React.FC<Props> = React.memo(({
                 height: FIELD_HEIGHT,
                 borderRadius: 0,
               }}
+              aria-label="Copy password"
               disabled={isCopyButtonDisabled}
               onClick={handlePasswordCopy}
             >
-              <ContentCopyIcon fontSize="medium"/>
+              <ContentCopyIcon fontSize="medium" />
             </Button>
 
             {isLinearProgressVisible && (
@@ -80,7 +82,8 @@ const PasswordField: React.FC<Props> = React.memo(({
                   borderRadius: '0 0 4px 4px',
                 }}
                 variant="determinate"
-                value={passwordDifficulty}
+                value={passwordStrength}
+                aria-label="Password strength"
               />
             )}
           </InputAdornment>
