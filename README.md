@@ -1,46 +1,106 @@
-# Getting Started with Create React App
+# Password Generator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[https://mui-password-generator.vercel.app/](https://mui-password-generator.vercel.app/)
 
-## Available Scripts
+This is a password generator application built with Create React App using React, TypeScript, and MUI (Material-UI). The application allows you to generate strong passwords based on your preferences and saves the copied passwords in the history. You can also remove passwords from the history.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Password generation with various options:
+  - Uppercase characters
+  - Lowercase characters
+  - Numbers
+  - Symbols
+  - Starts with specific characters
+  - Ends with specific characters
+  - Excludes specific characters
+  - Strict mode (password must include at least one character from each selected option)
+- Password history with the ability to remove passwords
+- User-friendly interface with responsive design
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Prerequisites
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Before running the application, make sure you have the following installed:
 
-### `npm test`
+- Node.js (v12 or higher)
+- npm (Node Package Manager) or yarn
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+1. Clone the repository:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   git clone https://github.com/ruslanpashkov/mui-password-generator.git
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Navigate to the project directory:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   cd password-generator
+   ```
 
-### `npm run eject`
+3. Install the dependencies:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Usage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To start the application locally, run the following command:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+npm start
+# or
+yarn start
+```
 
-## Learn More
+This will start the development server and open the application in your default browser. If the browser doesn't open automatically, you can access the application by visiting [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Generating Passwords
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Set your password preferences using the available options:
+  - Toggle the checkboxes for uppercase, lowercase, numbers, and symbols to include or exclude them from the generated password.
+  - Enter specific characters in the "Starts with," "Ends with," and "Excludes" fields.
+  - Enable strict mode if you want to ensure that the generated password includes at least one character from each selected option.
+
+2. Click the "Generate" button to generate a password based on your preferences.
+
+3. The generated password will be displayed in the "Generated Password" field.
+
+4. You can copy the generated password by clicking the "Copy" button.
+
+### Password History
+
+When you copy a generated password, it will be added to the password history.
+
+After clicking on the "History" button, you can access and view the password history.
+
+To copy a password from the history, click the "Copy" button next to the password.
+
+### Removing Passwords
+
+To remove a password from the history, click the "Remove" button next to the password.
+
+To remove all passwords from the history, click "Clear History" button on the bottom of the sidebar.
+
+The password will be removed from the history, and it will no longer be available for future reference.
+
+## Customization
+
+If you want to customize the application or add additional features, you can modify the source code according to your needs. Here are some files and directories you might find useful:
+
+- `src/App.tsx`: Main component containing the application logic and UI.
+- `src/components/PasswordGenerator.tsx`: Component responsible for generating passwords.
+- `src/components/PasswordHistory.tsx`: Component displaying the password generation history.
+
+## Credits
+
+The Password Generator application was created by [Ruslan Pashkov](https://github.com/ruslanpashkov). It utilizes the following open-source libraries:
+
+- React: [https://reactjs.org](https://reactjs.org)
+- TypeScript: [https://www.typescriptlang.org](https://www.typescriptlang.org)
+- MUI (Material-UI): [https://mui.com](https://mui.com)
+- zxcvbn: [https://github.com/dropbox/zxcvbn](https://github.com/dropbox/zxcvbn)
