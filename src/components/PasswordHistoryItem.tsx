@@ -1,26 +1,25 @@
-import React from 'react';
-import ListItemButton from '@mui/material/ListItemButton';
+import React, { useState } from 'react';
+import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import IconButton from '@mui/material/IconButton';
 import ClearIcon from '@mui/icons-material/Clear';
 import Divider from '@mui/material/Divider';
 import { Password } from '../types/Password';
+import { ListItemButton } from '@mui/material';
 
 type Props = {
   password: Password;
-  selectedPasswordId: number;
-  selectPassword: (id: number) => void;
   copyPassword: (password: string) => void;
   deletePassword: (password: string) => void;
 };
 
 const PasswordHistoryItem: React.FC<Props> = React.memo(({
   password,
-  selectedPasswordId,
-  selectPassword,
   copyPassword,
   deletePassword,
 }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   const removePassword = (
     event: React.MouseEvent<HTMLButtonElement>,
     passcode: string,
@@ -30,28 +29,39 @@ const PasswordHistoryItem: React.FC<Props> = React.memo(({
     deletePassword(passcode);
   };
 
-  const isPasswordSelected = password.id === selectedPasswordId;
-
   return (
     <>
-      <ListItemButton
-        onDoubleClick={() => copyPassword(password.password)}
-        onMouseEnter={() => selectPassword(password.id)}
-        onMouseLeave={() => selectPassword(0)}
-      >
-        <ListItemText
-          primary={password.password}
-          secondary={password.createdAt}
-        />
-
-        {isPasswordSelected && (
-          <IconButton onClick={(event) => {
-            removePassword(event, password.password);
-          }}>
-            <ClearIcon/>
+      <ListItem
+        disablePadding
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        secondaryAction={
+          <IconButton
+            edge="end"
+            aria-label="Delete password"
+            onClick={(event) => {
+              removePassword(event, password.password);
+            }}
+          >
+            {isHovered && (<ClearIcon/>)}
           </IconButton>
-        )}
-      </ListItemButton>
+        }
+      >
+        <ListItemButton onDoubleClick={() => copyPassword(password.password)}>
+          <ListItemText
+            primaryTypographyProps={{
+              variant: 'subtitle1',
+              style: {
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+              },
+            }}
+            primary={password.password}
+            secondary={password.createdAt}
+          />
+        </ListItemButton>
+      </ListItem>
 
       <Divider/>
     </>
