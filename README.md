@@ -4,6 +4,8 @@
 
 This is a password generator application built with Create React App using React, TypeScript, and MUI (Material-UI). The application allows you to generate strong passwords based on your preferences and saves the copied passwords in the history. You can also remove passwords from the history.
 
+https://github.com/ruslanpashkov/mui-password-generator/assets/129327901/f9b2dbda-2fc7-40ef-8d72-2a44dd98ce20
+
 ## Features
 
 - Password generation with various options:
