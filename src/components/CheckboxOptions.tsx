@@ -1,14 +1,14 @@
-import React from 'react';
 import FormGroup from '@mui/material/FormGroup';
-import CheckboxItem from './CheckboxItem';
+import { FC, memo } from 'react';
 import { Checkboxes } from '../types/Checkboxes';
+import CheckboxItem from './CheckboxItem';
 
 type Props = {
   checkboxes: Checkboxes;
   changeStatus: (checkboxName: keyof Checkboxes) => void;
 };
 
-const CheckboxOptions: React.FC<Props> = React.memo(({
+const CheckboxOptions: FC<Props> = memo(({
   checkboxes,
   changeStatus,
 }) => (

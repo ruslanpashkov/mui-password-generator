@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
-import Snackbar from '@mui/material/Snackbar';
 import Alert, { AlertProps } from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
+import Snackbar from '@mui/material/Snackbar';
+import { FC, memo, useContext } from 'react';
 import { ThemeContext } from './ThemeContext';
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
   closeNotification: () => void;
 };
 
-const CopyNotification: React.FC<Props> = React.memo(({
+const CopyNotification: FC<Props> = memo(({
   isOpened,
   closeNotification,
 }) => {

@@ -1,10 +1,10 @@
-import React from 'react';
 import Box from '@mui/material/Box';
-import InputItem from './InputItem';
-import { Fields } from '../types/Fields';
-import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
+import { FC, memo } from 'react';
 import { Checkboxes } from '../types/Checkboxes';
+import { Fields } from '../types/Fields';
+import InputItem from './InputItem';
 
 type Props = {
   fields: Fields;
@@ -16,7 +16,7 @@ type Props = {
   isWarning: boolean;
 };
 
-const InputFields: React.FC<Props> = React.memo(({
+const InputFields: FC<Props> = memo(({
   fields,
   length,
   strict,

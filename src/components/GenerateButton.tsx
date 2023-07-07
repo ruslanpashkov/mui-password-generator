@@ -1,13 +1,13 @@
-import React from 'react';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { FC, memo } from 'react';
 
 type Props = {
   generatePassword: () => void;
   hasActiveCheckbox: boolean;
 };
 
-const GenerateButton: React.FC<Props> = React.memo(({
+const GenerateButton: FC<Props> = memo(({
   generatePassword,
   hasActiveCheckbox,
 }) => (

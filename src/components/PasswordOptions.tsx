@@ -1,9 +1,9 @@
-import React from 'react';
 import Box from '@mui/material/Box';
+import { FC, memo } from 'react';
+import { Checkboxes } from '../types/Checkboxes';
+import { Fields } from '../types/Fields';
 import CheckboxOptions from './CheckboxOptions';
 import InputFields from './InputFields';
-import { Fields } from '../types/Fields';
-import { Checkboxes } from '../types/Checkboxes';
 
 type Props = {
   fields: Fields;
@@ -14,7 +14,7 @@ type Props = {
   hasActiveCheckbox: boolean;
 };
 
-const PasswordOptions: React.FC<Props> = React.memo(({
+const PasswordOptions: FC<Props> = memo(({
   fields,
   checkboxes,
   changePasswordLength,

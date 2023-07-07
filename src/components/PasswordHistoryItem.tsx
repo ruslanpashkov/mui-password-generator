@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import ClearIcon from '@mui/icons-material/Clear';
+import { ListItemButton } from '@mui/material';
+import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-import IconButton from '@mui/material/IconButton';
-import ClearIcon from '@mui/icons-material/Clear';
-import Divider from '@mui/material/Divider';
+import { FC, memo, useState } from 'react';
 import { Password } from '../types/Password';
-import { ListItemButton } from '@mui/material';
 
 type Props = {
   password: Password;
@@ -13,7 +13,7 @@ type Props = {
   deletePassword: (password: string) => void;
 };
 
-const PasswordHistoryItem: React.FC<Props> = React.memo(({
+const PasswordHistoryItem: FC<Props> = memo(({
   password,
   copyPassword,
   deletePassword,

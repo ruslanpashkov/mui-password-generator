@@ -1,14 +1,14 @@
-import React from 'react';
-import Typography from '@mui/material/Typography';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import { FC, memo } from 'react';
 
 type Props = {
   clearHistory: () => void;
   hasPasswords: boolean;
 };
 
-const ClearHistoryButton: React.FC<Props> = React.memo(({
+const ClearHistoryButton: FC<Props> = memo(({
   clearHistory,
   hasPasswords,
 }) => (

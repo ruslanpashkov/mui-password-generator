@@ -1,7 +1,7 @@
-import React from 'react';
 import Typography from '@mui/material/Typography';
+import { FC, memo } from 'react';
 
-const HeaderTitle: React.FC = React.memo(() => (
+const HeaderTitle: FC = memo(() => (
   <Typography
     sx={{
       m: '60px  0 40px',

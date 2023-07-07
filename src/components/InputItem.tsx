@@ -1,8 +1,8 @@
-import React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import { validateInput } from '../helpers/validateInput';
+import { FC, memo } from 'react';
 import { normalizeLabel } from '../helpers/normalizeLabel';
+import { validateInput } from '../helpers/validateInput';
 
 type Props = {
   label: string;
@@ -12,7 +12,7 @@ type Props = {
   isWarning: boolean;
 };
 
-const InputItem: React.FC<Props> = React.memo(({
+const InputItem: FC<Props> = memo(({
   label,
   value,
   strict,

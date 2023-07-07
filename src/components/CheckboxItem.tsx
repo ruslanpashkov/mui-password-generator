@@ -1,8 +1,8 @@
-import React from 'react';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import { Checkboxes } from '../types/Checkboxes';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import { FC, memo } from 'react';
 import { normalizeLabel } from '../helpers/normalizeLabel';
+import { Checkboxes } from '../types/Checkboxes';
 
 type Props = {
   checkbox: string;
@@ -10,7 +10,7 @@ type Props = {
   changeStatus: (checkboxName: keyof Checkboxes) => void;
 };
 
-const CheckboxItem: React.FC<Props> = React.memo(({
+const CheckboxItem: FC<Props> = memo(({
   checkbox,
   status,
   changeStatus,

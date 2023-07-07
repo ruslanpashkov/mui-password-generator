@@ -1,7 +1,7 @@
-import React from 'react';
-import ListItem from '@mui/material/ListItem';
-import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
+import Button from '@mui/material/Button';
+import ListItem from '@mui/material/ListItem';
+import { FC, memo } from 'react';
 import ClearHistoryButton from './ClearHistoryButton';
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
   hasPasswords: boolean;
 };
 
-const PasswordHistoryFooter: React.FC<Props> = React.memo(({
+const PasswordHistoryFooter: FC<Props> = memo(({
   listWidth,
   clearHistory,
   closeHistory,

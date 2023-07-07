@@ -1,6 +1,6 @@
-import React from 'react';
 import { styled } from '@mui/material';
 import Switch from '@mui/material/Switch';
+import { FC, memo, useContext } from 'react';
 import { ThemeContext } from './ThemeContext';
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
@@ -50,8 +50,8 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
-const ColorThemeSwitch: React.FC = React.memo(() => {
-  const { theme, toggleTheme } = React.useContext(ThemeContext);
+const ColorThemeSwitch: FC = memo(() => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
     <MaterialUISwitch

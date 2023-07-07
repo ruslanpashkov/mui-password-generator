@@ -1,19 +1,19 @@
-import React, { useMemo } from 'react';
-import { createTheme, ThemeProvider } from '@mui/material';
-import { blue, orange } from '@mui/material/colors';
+import { ThemeProvider, createTheme } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
+import { blue, orange } from '@mui/material/colors';
+import { FC, ReactNode, createContext, useMemo } from 'react';
 import useLocalStorage from '../hooks/useLocalStorage';
 
 type Props = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
-export const ThemeContext = React.createContext({
+export const ThemeContext = createContext({
   theme: 'light',
   toggleTheme: () => {},
 });
 
-export const ThemeContextProvider: React.FC<Props> = ({ children }) => {
+export const ThemeContextProvider: FC<Props> = ({ children }) => {
   const [mode, setMode] = useLocalStorage('theme', 'light');
 
   const lightTheme = useMemo(() => createTheme({
@@ -43,7 +43,7 @@ export const ThemeContextProvider: React.FC<Props> = ({ children }) => {
         currentMode === 'light' ? 'dark' : 'light'
       ));
     },
-  }), [mode]);
+  }), [mode, setMode]);
 
   return (
     <ThemeContext.Provider value={colorMode}>

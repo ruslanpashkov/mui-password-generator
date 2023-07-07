@@ -1,8 +1,8 @@
-import React from 'react';
-import { TransitionGroup } from 'react-transition-group';
 import Collapse from '@mui/material/Collapse';
-import PasswordHistoryItem from './PasswordHistoryItem';
+import { FC, memo } from 'react';
+import { TransitionGroup } from 'react-transition-group';
 import { Password } from '../types/Password';
+import PasswordHistoryItem from './PasswordHistoryItem';
 
 type Props = {
   passwords: Password[];
@@ -10,7 +10,7 @@ type Props = {
   deletePassword: (password: string) => void;
 };
 
-const PasswordHistoryList: React.FC<Props> = React.memo(({
+const PasswordHistoryList: FC<Props> = memo(({
   passwords,
   copyPassword,
   deletePassword,

@@ -1,13 +1,13 @@
-import React from 'react';
-import Tooltip from '@mui/material/Tooltip';
-import Button from '@mui/material/Button';
 import HistoryIcon from '@mui/icons-material/History';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import { FC, memo } from 'react';
 
 type Props = {
   openHistory: () => void;
 };
 
-const OpenHistoryButton: React.FC<Props> = React.memo(({ openHistory }) => (
+const OpenHistoryButton: FC<Props> = memo(({ openHistory }) => (
   <Tooltip title="History" enterDelay={500}>
     <Button
       sx={{

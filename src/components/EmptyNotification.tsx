@@ -1,8 +1,8 @@
-import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { FC, memo } from 'react';
 
-const EmptyNotification: React.FC = React.memo(() => (
+const EmptyNotification: FC = memo(() => (
   <Box
     sx={{
       height: '100%',

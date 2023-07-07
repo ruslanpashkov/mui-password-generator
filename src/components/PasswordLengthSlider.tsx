@@ -1,5 +1,5 @@
-import React from 'react';
 import Slider from '@mui/material/Slider';
+import { FC, memo } from 'react';
 
 type Props = {
   length: number;
@@ -8,7 +8,7 @@ type Props = {
   hasActiveCheckbox: boolean;
 };
 
-const PasswordLengthSlider: React.FC<Props> = React.memo(({
+const PasswordLengthSlider: FC<Props> = memo(({
   length,
   strict,
   changeLength,

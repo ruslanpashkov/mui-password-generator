@@ -1,10 +1,12 @@
-import React from 'react';
-import zxcvbn from 'zxcvbn';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import Button from '@mui/material/Button';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import LinearProgress from '@mui/material/LinearProgress';
-import { FormControl, InputAdornment, InputLabel } from '@mui/material';
+import Button from '@mui/material/Button';
+import FormControl from '@mui/material/FormControl';
+import InputAdornment from '@mui/material/InputAdornment';
+import InputLabel from '@mui/material/InputLabel';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import { FC, Suspense, lazy, memo } from 'react';
+
+const PasswordStrength = lazy(() => import('./PasswordStrength'));
 
 type Props = {
   password: string;
@@ -14,7 +16,7 @@ type Props = {
   hasError: boolean;
 };
 
-const PasswordField: React.FC<Props> = React.memo(({
+const PasswordField: FC<Props> = memo(({
   password,
   copyPassword,
   changePassword,
@@ -26,10 +28,6 @@ const PasswordField: React.FC<Props> = React.memo(({
   const labelText = hasActiveCheckbox
     ? 'Generate your password'
     : 'Select at least one option';
-
-  const passwordStrength = password.length >= 4
-    ? (zxcvbn(password).score + 1) * 20
-    : 0;
 
   const handlePasswordChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -50,7 +48,7 @@ const PasswordField: React.FC<Props> = React.memo(({
       </InputLabel>
 
       <OutlinedInput
-        sx={{ pr: 0, fontWeight: 700, height: FIELD_HEIGHT }}
+        sx={{ pr: 0, height: FIELD_HEIGHT, fontWeight: 700 }}
         fullWidth
         label={labelText}
         value={password}
@@ -60,10 +58,7 @@ const PasswordField: React.FC<Props> = React.memo(({
         endAdornment={
           <InputAdornment position="end">
             <Button
-              sx={{
-                height: FIELD_HEIGHT,
-                borderRadius: 0,
-              }}
+              sx={{ height: FIELD_HEIGHT, borderRadius: 0 }}
               aria-label="Copy password"
               disabled={isCopyButtonDisabled}
               onClick={handlePasswordCopy}
@@ -72,19 +67,9 @@ const PasswordField: React.FC<Props> = React.memo(({
             </Button>
 
             {isLinearProgressVisible && (
-              <LinearProgress
-                sx={{
-                  zIndex: 1,
-                  position: 'absolute',
-                  right: 0,
-                  left: 0,
-                  bottom: 0,
-                  borderRadius: '0 0 4px 4px',
-                }}
-                variant="determinate"
-                value={passwordStrength}
-                aria-label="Password strength"
-              />
+              <Suspense>
+                <PasswordStrength password={password} />
+              </Suspense>
             )}
           </InputAdornment>
         }

@@ -1,12 +1,12 @@
-import React from 'react';
-import Box from '@mui/material/Box';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import IconButton from '@mui/material/IconButton';
 import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import Box from '@mui/material/Box';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import IconButton from '@mui/material/IconButton';
+import { FC, memo } from 'react';
 
-const ContactSection: React.FC = React.memo(() => (
+const ContactSection: FC = memo(() => (
   <Box sx={{ mt: '20px' }}>
     <ButtonGroup>
       <IconButton

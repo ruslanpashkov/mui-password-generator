@@ -1,13 +1,13 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import Paper from '@mui/material/Paper';
-import PasswordField from './PasswordField';
-import PasswordOptions from './PasswordOptions';
-import PasswordLengthSlider from './PasswordLengthSlider';
-import GenerateButton from './GenerateButton';
-import { Fields } from '../types/Fields';
-import { Checkboxes } from '../types/Checkboxes';
-import useLocalStorage from '../hooks/useLocalStorage';
+import { FC, memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { getPassword } from '../helpers/getPassword';
+import useLocalStorage from '../hooks/useLocalStorage';
+import { Checkboxes } from '../types/Checkboxes';
+import { Fields } from '../types/Fields';
+import GenerateButton from './GenerateButton';
+import PasswordField from './PasswordField';
+import PasswordLengthSlider from './PasswordLengthSlider';
+import PasswordOptions from './PasswordOptions';
 
 type Props = {
   copyPassword: (password: string) => void;
@@ -28,7 +28,7 @@ const initialCheckboxes: Checkboxes = {
   strict: false,
 };
 
-const PasswordGenerator: React.FC<Props> = React.memo(({ copyPassword }) => {
+const PasswordGenerator: FC<Props> = memo(({ copyPassword }) => {
   const [password, setPassword] = useState('');
   const [fields, setFields] = useState(initialFields);
   const [checkboxes, setCheckboxes] = useLocalStorage('set', initialCheckboxes);
@@ -66,7 +66,7 @@ const PasswordGenerator: React.FC<Props> = React.memo(({ copyPassword }) => {
       ...currentState,
       length: value as number,
     }));
-  }, []);
+  }, [setCheckboxes]);
 
   const changeCheckboxStatus = useCallback((
     checkboxName: keyof Checkboxes,
@@ -75,7 +75,7 @@ const PasswordGenerator: React.FC<Props> = React.memo(({ copyPassword }) => {
       ...currentState,
       [checkboxName]: !currentState[checkboxName],
     }));
-  }, []);
+  }, [setCheckboxes]);
 
   const changeInputValue = useCallback((stateKey: string, value: string) => {
     setFields((currentState) => ({
@@ -93,14 +93,14 @@ const PasswordGenerator: React.FC<Props> = React.memo(({ copyPassword }) => {
 
   return (
     <Paper
-      component="form"
-      elevation={2}
       sx={{
         p: '24px',
         display: 'flex',
         flexDirection: 'column',
         gap: '20px',
       }}
+      component="form"
+      elevation={2}
     >
       <PasswordField
         password={password}

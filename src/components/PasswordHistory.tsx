@@ -1,10 +1,10 @@
-import React from 'react';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
-import EmptyNotification from './EmptyNotification';
-import PasswordHistoryList from './PasswordHistoryList';
-import PasswordHistoryFooter from './PasswordHistoryFooter';
+import { FC, memo } from 'react';
 import { Password } from '../types/Password';
+import EmptyNotification from './EmptyNotification';
+import PasswordHistoryFooter from './PasswordHistoryFooter';
+import PasswordHistoryList from './PasswordHistoryList';
 
 type Props = {
   passwords: Password[];
@@ -15,7 +15,7 @@ type Props = {
   isOpened: boolean;
 };
 
-const PasswordHistory: React.FC<Props> = ({
+const PasswordHistory: FC<Props> = memo(({
   passwords,
   copyPassword,
   deletePassword,
@@ -67,6 +67,6 @@ const PasswordHistory: React.FC<Props> = ({
       />
     </Drawer>
   );
-};
+});
 
 export default PasswordHistory;

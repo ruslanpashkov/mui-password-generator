@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import { FC, useState, useCallback } from 'react';
 import './App.css';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -12,7 +12,7 @@ import ColorThemeSwitch from './components/ColorThemeSwitch';
 import useLocalStorage from './hooks/useLocalStorage';
 import { Password } from './types/Password';
 
-const App: React.FC = () => {
+const App: FC = () => {
   const [passwords, setPasswords] = useLocalStorage('passwords', []);
   const [isCopied, setIsCopied] = useState(false);
   const [isHistoryOpened, setIsHistoryOpened] = useState(false);
