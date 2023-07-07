@@ -5,6 +5,7 @@
   },
   "extends": [
     "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "airbnb-typescript",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
@@ -43,18 +44,13 @@
   "rules": {
     // JS
     "semi": "off",
-    "@typescript-eslint/semi": [
-      "error", "always"
-    ],
+    "@typescript-eslint/semi": ["error", "always"],
     "prefer-const": 2,
     "curly": [2, "all"],
-    "max-len": [
-      "error", {
+    "max-len": ["error", {
       "ignoreTemplateLiterals": true,
       "ignoreComments": true
     }],
-    "import/named": "off",
-    "import/no-extraneous-dependencies": "off",
     "no-redeclare": [2, { "builtinGlobals": true }],
     "no-console": 2,
     "operator-linebreak": [2, "before"],
@@ -65,14 +61,8 @@
     "padding-line-between-statements": [
       2,
       { "blankLine": "always", "prev": "*", "next": "return" },
-      { "blankLine": "always", "prev": [
-        "const", "let", "var"
-      ], "next": "*" },
-      { "blankLine": "any", "prev": [
-        "const", "let", "var"
-      ], "next": [
-        "const", "let", "var"
-      ] },
+      { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
+      { "blankLine": "any", "prev": ["const", "let", "var"], "next": ["const", "let", "var"] },
       { "blankLine": "always", "prev": "directive", "next": "*" },
       { "blankLine": "always", "prev": "block-like", "next": "*" }
     ],
@@ -80,27 +70,21 @@
     // React
     "react/prop-types": 0,
     "react/display-name": 0,
-    "react/require-default-props": 0,
     "import/prefer-default-export": 0,
     "standard/no-callback-literal": 0,
-    "react/jsx-filename-extension": [1, { "extensions": [
-      ".tsx"
-    ] }],
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
     "react/destructuring-assignment": 0,
     "react/jsx-props-no-spreading": 0,
     "react/state-in-constructor": [2, "never"],
     "react-hooks/rules-of-hooks": 2,
+    "react-hooks/exhaustive-deps": 1,
     "jsx-a11y/label-has-associated-control": ["error", {
       "assert": "either"
     }],
     "jsx-a11y/label-has-for": [2, {
-      "components": [
-        "Label"
-      ],
+      "components": ["Label"],
       "required": {
-        "some": [
-          "id", "nesting"
-        ]
+        "some": ["id", "nesting"]
       },
       "allowChildren": true
     }],
@@ -109,13 +93,9 @@
 
     // Typescript
     "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/no-unused-vars": [
-      "error"
-    ],
-    "@typescript-eslint/indent": [
-      "error", 2],
-    "@typescript-eslint/ban-types": [
-      "error", {
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "@typescript-eslint/indent": ["error", 2],
+    "@typescript-eslint/ban-types": ["error", {
       "extendDefaults": true,
       "types": {
         "{}": false
@@ -125,13 +105,9 @@
   },
   "overrides": [
     {
-      "files": [
-        "**/*.spec.jsx"
-      ],
+      "files": ["**/*.spec.jsx"],
       "rules": {
-        "react/jsx-filename-extension": [
-          "off"
-        ]
+        "react/jsx-filename-extension": ["off"]
       }
     }
   ]
