@@ -38,7 +38,7 @@ Before running the application, make sure you have the following installed:
 2. Navigate to the project directory:
 
    ```bash
-   cd password-generator
+   cd mui-password-generator
    ```
 
 3. Install the dependencies:
