@@ -52,7 +52,8 @@ const PasswordField: FC<Props> = memo(({
         fullWidth
         label={labelText}
         value={password}
-        aria-label="Generated password"
+        role="textbox"
+        aria-label="Password"
         error={isFieldsDisabled}
         onChange={handlePasswordChange}
         endAdornment={
